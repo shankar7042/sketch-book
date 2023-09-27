@@ -25,7 +25,7 @@ const Board = () => {
       a.click();
     }
     dispatch(actionItemClick(null));
-  }, [actionMenuItem]);
+  }, [actionMenuItem, dispatch]);
 
   useLayoutEffect(() => {
     if (!canvasRef.current) return;
