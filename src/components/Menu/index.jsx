@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cn from "classnames";
 
 import { MENU_ITEMS } from "@/constants";
-import { menuItemClick } from "@/slice/menuSlice";
+import { menuItemClick, actionItemClick } from "@/slice/menuSlice";
 
 import styles from "./index.module.css";
 
@@ -13,6 +13,10 @@ const Menu = () => {
 
   const handleClick = (itemName) => {
     dispatch(menuItemClick(itemName));
+  };
+
+  const handleActionClick = (actionName) => {
+    dispatch(actionItemClick(actionName));
   };
 
   return (
@@ -33,13 +37,22 @@ const Menu = () => {
       >
         <Eraser className={styles.icon} />
       </div>
-      <div className={styles.iconContainer}>
+      <div
+        className={styles.iconContainer}
+        onClick={() => handleActionClick(MENU_ITEMS.UNDO)}
+      >
         <Undo className={styles.icon} />
       </div>
-      <div className={styles.iconContainer}>
+      <div
+        className={styles.iconContainer}
+        onClick={() => handleActionClick(MENU_ITEMS.REDO)}
+      >
         <Redo className={styles.icon} />
       </div>
-      <div className={styles.iconContainer}>
+      <div
+        className={styles.iconContainer}
+        onClick={() => handleActionClick(MENU_ITEMS.DOWNLOAD)}
+      >
         <FileDown className={styles.icon} />
       </div>
     </div>
