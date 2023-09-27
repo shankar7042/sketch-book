@@ -1,5 +1,4 @@
 import { Eraser, FileDown, Pencil, Redo, Undo } from "lucide-react";
-import cn from "classnames";
 import styles from "./index.module.css";
 
 const Menu = () => {
