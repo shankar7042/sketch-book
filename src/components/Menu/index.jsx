@@ -1,13 +1,36 @@
 import { Eraser, FileDown, Pencil, Redo, Undo } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import cn from "classnames";
+
+import { MENU_ITEMS } from "@/constants";
+import { menuItemClick } from "@/slice/menuSlice";
+
 import styles from "./index.module.css";
 
 const Menu = () => {
+  const dispatch = useDispatch();
+  const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
+
+  const handleClick = (itemName) => {
+    dispatch(menuItemClick(itemName));
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.iconContainer}>
+      <div
+        className={cn(styles.iconContainer, {
+          [styles.active]: activeMenuItem === MENU_ITEMS.PENCIL,
+        })}
+        onClick={() => handleClick(MENU_ITEMS.PENCIL)}
+      >
         <Pencil className={styles.icon} />
       </div>
-      <div className={styles.iconContainer}>
+      <div
+        className={cn(styles.iconContainer, {
+          [styles.active]: activeMenuItem === MENU_ITEMS.ERASER,
+        })}
+        onClick={() => handleClick(MENU_ITEMS.ERASER)}
+      >
         <Eraser className={styles.icon} />
       </div>
       <div className={styles.iconContainer}>
