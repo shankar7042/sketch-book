@@ -1,0 +1,26 @@
+.toolboxContainer {
+  @apply p-5 fixed top-1/4 left-5 w-64 rounded shadow-sm border bg-zinc-200/40 space-y-4;
+
+  .toolItem {
+    .toolText {
+      @apply text-zinc-900 text-sm;
+    }
+
+    .itemContainer {
+      @apply flex justify-between mt-2;
+
+      .colorBox {
+        @apply h-5 w-5 mr-1 rounded-sm cursor-pointer;
+
+        &:hover,
+        &.active {
+          @apply border-2 shadow-md;
+        }
+      }
+
+      .inputRange {
+        @apply w-full;
+      }
+    }
+  }
+}
