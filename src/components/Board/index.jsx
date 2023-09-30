@@ -77,7 +77,6 @@ const Board = () => {
     const handleMouseUp = (e) => {
       shouldDraw.current = false;
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      console.log(imageData);
       drawHistory.current.push(imageData);
       historyPointer.current = drawHistory.current.length - 1;
     };
